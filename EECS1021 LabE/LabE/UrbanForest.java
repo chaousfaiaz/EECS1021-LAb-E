@@ -35,7 +35,7 @@ public class UrbanForest extends TimerTask {
      */
     public int treeCount() {
         //replace the line below with your code!
-        throw new UnsupportedOperationException("Not implemented yet.");
+       return this.trees.size();
     }
 
     /**
@@ -46,7 +46,11 @@ public class UrbanForest extends TimerTask {
      */
     public double averageDiameter() {
         //replace the line below with your code!
-        throw new UnsupportedOperationException("Not implemented yet.");
+       double totalDiameter = 0;
+        for(MunicipalTree nt:trees){
+            totalDiameter += nt.getDiameter();
+        }
+        return totalDiameter/treeCount();
     }
 
     /**
@@ -60,7 +64,14 @@ public class UrbanForest extends TimerTask {
      */
     public Set<String> getTreeTypes() throws InvalidTreeException {
         //replace the line below with your code!
-        throw new UnsupportedOperationException("Not implemented yet.");
+        Set<string> unique = new Hashset();
+        for(MunicipalTree nt:trees){
+            String name = nt.getName();
+            if(name.chatAt(0) == 'Z' || name.charAt(0) == 'z'){
+                throw new InvalidTreeException(name);
+            }
+                unique.add(name);
+        }return unique;
     }
 
     /**
@@ -71,7 +82,15 @@ public class UrbanForest extends TimerTask {
      */
     public Map<String, Integer> getTreeOwners() {
         //replace the line below with your code!
-        throw new UnsupportedOperationException("Not implemented yet.");
+       Map<String, Integer> hw = new HashMap<>();
+        for(MunicipalTree nt : trees){
+            String name = nt.getOwner();
+            if(hw.containsKey(name)){
+                hw.get(name, hw.get(name)=1);
+            }else {
+                hw.put(name,1);}
+        }return hw;
+            
     }
 
 
@@ -86,7 +105,8 @@ public class UrbanForest extends TimerTask {
 
         //Write a loop to make each tree in the forest grow
         //for a year below.
-
+    for(MunicipalTree nt : trees){
+             nt.growr(1);
 
         //Keep the line below.
         //You should see the average diametexwr change
