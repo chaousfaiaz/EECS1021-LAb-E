@@ -70,6 +70,6 @@ public class MunicipalTree {
      * @param time the amount of time that has elapsed, in years.
      */
     public void grow(double time) {
-        throw new UnsupportedOperationException("Not implemented yet."); //replace this with your code!
+        this.diameter = this.diameter + this.diameter*.05*time; //replace this with your code!
     }
 }
